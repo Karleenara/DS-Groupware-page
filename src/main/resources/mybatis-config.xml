@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+
+	<typeAliases>
+		<!-- <typeAlias alias="GuestbookDto" type="com.kosa.mycompany.guestbook.GuestbookDto" /> -->
+		<typeAlias alias ="UserDto" type="com.ds.gw.user.UserDto"/>
+	</typeAliases>
+
+	<mappers>
+		<!-- <mapper resource="/com/kosa/mycompany/mapper/Guestbook.xml" /> -->
+		<mapper resource="mapper/test.xml" />
+	</mappers>
+
+
+</configuration>

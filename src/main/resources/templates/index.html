@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" th:href="@{/css/board.css}"/>
+<title>Insert title here</title>
+</head>
+<body>
+  <div class="container">
+  <h2>목록</h2>
+    <table class="board_list">
+      <colgroup>
+        <col width="15%"/>
+        <col width="*"/>
+        <col width="15%"/>
+        <col width="20%"/>
+      </colgroup>
+      <thead>
+        <tr>
+          <th scope="col">id</th>
+          <th scope="col">name</th>
+          <th scope="col">email</th>
+          <th scope="col">telno</th>
+        </tr>
+      </thead>
+      <tbody>
+         <tr th:each="list : ${getList}">
+            <td><span th:text="${list.user_id}"></span></td>
+            <td><span th:text="${list.user_email}"></span></td>
+         </tr>
+      </tbody>
+    </table>
+    <a href="openBoardWrite" class="btn">글 쓰기</a>
+  </div>
+</body>
+</html>
