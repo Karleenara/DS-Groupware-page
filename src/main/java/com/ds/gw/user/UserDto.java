@@ -6,11 +6,11 @@ import lombok.Setter;
 @Getter
 @Setter
 public class UserDto {
-	String user_id;
-	String user_nm;
-	String user_email;
-	String user_telno;
-	String user_addr;
-	String user_dept_no;
-	String user_aprv_yn;
+	private String user_id;
+	private String user_nm;
+	private String user_email;
+	private String user_telno;
+	private String user_addr;
+	private String user_dept_no;
+	private String user_aprv_yn;
 }

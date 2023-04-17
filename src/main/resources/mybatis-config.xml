@@ -8,11 +8,15 @@
 	<typeAliases>
 		<!-- <typeAlias alias="GuestbookDto" type="com.kosa.mycompany.guestbook.GuestbookDto" /> -->
 		<typeAlias alias ="UserDto" type="com.ds.gw.user.UserDto"/>
+		<typeAlias alias ="DeptDto" type="com.ds.gw.user.DeptDto"/>
+		<typeAlias alias ="HobbyDto" type="com.ds.gw.user.HobbyDto"/>
 	</typeAliases>
 
 	<mappers>
 		<!-- <mapper resource="/com/kosa/mycompany/mapper/Guestbook.xml" /> -->
 		<mapper resource="mapper/test.xml" />
+		<mapper resource="mapper/hobby.xml" />
+		<mapper resource="mapper/dept.xml" />
 	</mappers>
 
 

@@ -6,4 +6,6 @@ import com.ds.gw.user.UserDto;
 
 public interface UserService {
 	List<UserDto> getList(UserDto dto); 
+
+
 }

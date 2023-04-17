@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.ds.gw.user.DeptDto;
+import com.ds.gw.user.HobbyDto;
 import com.ds.gw.user.UserDto;
 import com.ds.gw.user.repository.UserDao;
 
@@ -18,6 +20,7 @@ public class UserServiceImpl implements UserService {
 	public List<UserDto> getList(UserDto dto) {
 		return dao.getList(dto);
 	}
-	
+
+
 	
 }
