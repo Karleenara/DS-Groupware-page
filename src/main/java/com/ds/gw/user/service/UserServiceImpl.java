@@ -4,8 +4,6 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.ds.gw.user.DeptDto;
-import com.ds.gw.user.HobbyDto;
 import com.ds.gw.user.UserDto;
 import com.ds.gw.user.repository.UserDao;
 
@@ -19,6 +17,16 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public List<UserDto> getList(UserDto dto) {
 		return dao.getList(dto);
+	}
+
+	@Override
+	public void insertUser(UserDto dto) {
+		dao.insertUser(dto);
+	}
+
+	@Override
+	public UserDto getView(String user_id) {
+		return dao.getView(user_id);
 	}
 
 

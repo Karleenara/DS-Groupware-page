@@ -8,5 +8,11 @@
         select *
         from hobby
     </select>
+    
+    <insert id="insertHobby" parameterType="HUDto">
+    	insert into opperhobby
+    	(opper_cd, opper_user_id)
+    	values (#{opper_cd}, #{opper_user_id})
+    </insert>
 
 </mapper>

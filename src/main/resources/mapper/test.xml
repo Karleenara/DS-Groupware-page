@@ -5,8 +5,9 @@
         
  <mapper namespace="test">
     <select id="getList" resultType="UserDto">
-        select *
-        from "user"
+        select user_id, user_nm, user_eml_addr, d.dept_nm, user_telno, user_addr, user_aprv_yn
+    	from "user" u
+    	left outer join dept d on u.user_dept_no = d.dept_no
     </select>
     
     <insert id="insertUser" parameterType="UserDto">
@@ -14,4 +15,12 @@
     	(user_id, user_nm, user_eml_addr, user_telno, user_addr, user_dept_no, user_aprv_yn)
     	VALUES (#{user_id}, #{user_nm}, #{user_eml_addr}, #{user_telno}, #{user_addr},#{user_dept_no},'N')
     </insert>
+    
+    <select id="getView" resultType="UserDto">
+    	select user_id, user_nm, user_eml_addr, d.dept_nm, user_telno, user_addr, user_aprv_yn
+    	from "user" u
+    	left outer join dept d on u.user_dept_no = d.dept_no
+    	where user_id = #{user_id}
+    </select>
+    
 </mapper>

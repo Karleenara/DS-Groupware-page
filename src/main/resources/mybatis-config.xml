@@ -10,6 +10,7 @@
 		<typeAlias alias ="UserDto" type="com.ds.gw.user.UserDto"/>
 		<typeAlias alias ="DeptDto" type="com.ds.gw.user.DeptDto"/>
 		<typeAlias alias ="HobbyDto" type="com.ds.gw.user.HobbyDto"/>
+		<typeAlias alias ="HUDto" type="com.ds.gw.user.HUDto"/>
 	</typeAliases>
 
 	<mappers>

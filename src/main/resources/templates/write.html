@@ -15,7 +15,7 @@
         <h1>사용자 등록</h1>
       </div>
       <div class="starter-template">
-           <form class="form-horizontal" th:action method="post">
+          <form name="myform" id="myform" th:object="${UserDto}" method="post" th:action="@{/user/save}" >
                 <div class="form-group">
                     <label style="float: left" for="user_id" class="col-sm-2 control-label">ID</label>
                         <div class="col-sm-10" style="margin-top: 10px;">
@@ -37,11 +37,20 @@
                     </div>
                 </div></br>
 
+			<label>부서</label>
+				<select class="form-select" name="user_dept_no">
+				<option value="">=====선택=====</option>
+				<option th:each="d:${deptlist}" th:value="${d.dept_no}" th:text="${d.dept_nm}"></option>
+		            </select> 
+			<!-- 
                <label>부서</label>
-		            <select th:field="*{deptlist}">
-		                <option th:each="d : ${deptlist}" th:value="${d.dept_nm}" th:text="${d.dept_nm}"></option>
+               		<div class="form-select">
+		            <select name="user_dept_no">
+		            	<option value="">==선택==</option>
+		                <option th:each="d:${deptlist}" th:value="${d.dept_no}" th:text="${d.dept_nm}"></option>
 		            </select>
-                
+		            </div>
+                 -->
                 <div class="form-group">
                     <label style="float: left" for="user_telno" class="col-sm-2 control-label">전화번호</label>
                         <div class="col-sm-10" style="margin-top: 10px;">
@@ -58,7 +67,7 @@
                 
 
             <label style="float: left" for="hobby" class="col-sm-2 control-label">취미</label></br>
-            <input type="checkbox" th:each="h:${hobbylist}" th:value="${h.hobby_nm}" th:text="${h.hobby_nm}" /></br>
+            <input type="checkbox" th:each="h:${hobbylist}" th:value="${h.hobby_cd}" th:text="${h.hobby_nm}" /></br>
             </br>
              
 
@@ -68,10 +77,11 @@
 
             <div class="btn_wrap text-center">
                <a th:href="@{/}" class="btn btn-secondary">뒤로 가기</a>
-               <button type="input" class="btn btn-primary waves-effect waves-light">승인 요청</button>
+               <button type="submit" class="btn btn-primary waves-effect waves-light">승인 요청</button>
             </div>
            </form>
       </div>
     </main>
 </body>
+
 </html>

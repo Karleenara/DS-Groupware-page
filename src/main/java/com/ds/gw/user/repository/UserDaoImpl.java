@@ -18,6 +18,16 @@ public class UserDaoImpl implements UserDao{
 		return sm.selectList("getList",dto);
 	}
 
+	@Override
+	public void insertUser(UserDto dto) {
+		sm.insert("insertUser",dto);
+	}
+
+	@Override
+	public UserDto getView(String user_id) {
+		return sm.selectOne("getView", user_id);
+	}
+
 
 	
 }
