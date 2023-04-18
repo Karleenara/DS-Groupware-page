@@ -13,7 +13,7 @@
     <insert id="insertUser" parameterType="UserDto">
     	INSERT into public."user"
     	(user_id, user_nm, user_eml_addr, user_telno, user_addr, user_dept_no, user_aprv_yn)
-    	VALUES (#{user_id}, #{user_nm}, #{user_eml_addr}, #{user_telno}, #{user_addr},#{user_dept_no},'N')
+    	VALUES (#{user_id}, #{user_nm}, #{user_email}, #{user_telno}, #{user_addr},#{user_dept_no},'N')
     </insert>
     
     <select id="getView" resultType="UserDto">
