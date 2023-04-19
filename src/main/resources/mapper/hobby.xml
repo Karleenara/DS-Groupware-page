@@ -12,7 +12,11 @@
     <insert id="insertHobby" parameterType="HUDto">
     	insert into opperhobby
     	(opper_cd, opper_user_id)
-    	values (#{opper_cd}, #{opper_user_id})
+    	values (#{hobby_cd}, #{user_id})
     </insert>
 
+	<select id="userHobby" resultType="HUDto">
+		select *
+		from opperhobby
+	</select>
 </mapper>

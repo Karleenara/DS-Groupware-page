@@ -23,5 +23,10 @@ public class HobbyDaoImpl implements HobbyDao{
 	public void insertHobby(HUDto hu_dto) {
 		sm.insert("insertHobby", hu_dto);
 	}
-	
+
+	@Override
+	public List<HUDto> userHobby(HUDto hu_dto) {
+		return sm.selectList("userHobby", hu_dto);
+	}
+
 }

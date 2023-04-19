@@ -13,7 +13,7 @@
     <insert id="insertUser" parameterType="UserDto">
     	INSERT into public."user"
     	(user_id, user_nm, user_eml_addr, user_telno, user_addr, user_dept_no, user_aprv_yn)
-    	VALUES (#{user_id}, #{user_nm}, #{user_email}, #{user_telno}, #{user_addr},#{user_dept_no},'N')
+    	VALUES (#{user_id}, #{user_nm}, #{user_eml_addr}, #{user_telno}, #{user_addr},#{user_dept_no},'N')
     </insert>
     
     <select id="getView" resultType="UserDto">
@@ -22,5 +22,16 @@
     	left outer join dept d on u.user_dept_no = d.dept_no
     	where user_id = #{user_id}
     </select>
+    
+    <update id="updateUser" parameterType="UserDto">
+    	UPDATE public."user"
+		SET user_nm=#{user_nm}, user_eml_addr=#{user_eml_addr}, user_telno=#{user_telno}, user_addr=#{user_addr}, user_dept_no=#{user_dept_no}, user_aprv_yn='Y'
+		WHERE user_id= #{user_id}
+    </update>
+    
+    <delete id="deleteUser" parameterType="UserDto">
+    	DELETE FROM public."user"
+		WHERE user_id= #{user_id}
+    </delete>
     
 </mapper>

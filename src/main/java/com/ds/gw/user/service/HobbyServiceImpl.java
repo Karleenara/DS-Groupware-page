@@ -25,5 +25,10 @@ public class HobbyServiceImpl implements HobbyService {
 		dao.insertHobby(hu_dto);
 	}
 
+	@Override
+	public List<HUDto> userHobby(HUDto hu_dto) {
+		return dao.userHobby(hu_dto);
+	}
+
 
 }

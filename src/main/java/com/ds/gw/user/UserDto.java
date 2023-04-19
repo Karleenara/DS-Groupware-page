@@ -9,7 +9,7 @@ import lombok.Setter;
 public class UserDto extends DeptDto{
 	private String user_id;
 	private String user_nm;
-	private String user_email;
+	private String user_eml_addr;
 	private String user_telno;
 	private String user_addr;
 	private int user_dept_no;

@@ -29,6 +29,16 @@ public class UserServiceImpl implements UserService {
 		return dao.getView(user_id);
 	}
 
+	@Override
+	public void updateUser(UserDto dto) {
+		dao.updateUser(dto);
+	}
+
+	@Override
+	public void deleteUser(UserDto dto) {
+		dao.deleteUser(dto);
+	}
+
 
 	
 }

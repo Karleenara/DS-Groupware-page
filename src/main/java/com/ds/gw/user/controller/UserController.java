@@ -37,18 +37,17 @@ public class UserController {
 	@RequestMapping("/list")
 	public String getList(UserDto dto, Model model) {
 		List<UserDto> list = userservice.getList(dto);
-		model.addAttribute("getList", list);
-		System.out.println(list);
-		
+		model.addAttribute("getList", list);		
 		return "list";
 	}
 	
 	// 사용자포털: (wirte)등록 페이지로 이동
 	@RequestMapping(value="/user")
-	public String write(UserDto u_dto,DeptDto d_dto, Model model) {
+	public String write(UserDto u_dto,DeptDto d_dto, HUDto hu_dto, Model model) {
 		List<DeptDto> deptlist = deptservice.getDept(d_dto);
 		model.addAttribute("deptlist", deptlist);
-		model.addAttribute("UserDto", u_dto );
+//		model.addAttribute("UserDto", u_dto );
+//		model.addAttribute("huDto", hu_dto);
 		return "write";
 	}
 	
@@ -56,9 +55,20 @@ public class UserController {
 	@RequestMapping(value="/user/save")
 	public String save(UserDto dto, HUDto hu_dto, Model model) {
 		userservice.insertUser(dto);
-		//hobbyservice.insertHobby(hu_dto);
+		System.out.println(hu_dto.getHobby_cd());
+		String hulist = hu_dto.getHobby_cd();
+		System.out.println(hulist);
+		if(hulist.length() == 1) {
+			hobbyservice.insertHobby(hu_dto);
+		}else {
+			String[] hulist2 = hulist.split(",");
+			for (int i=0; i<hulist2.length; i++) {
+				hu_dto.setHobby_cd(hulist2[i]);
+				hobbyservice.insertHobby(hu_dto);
+				System.out.println(hulist2[i]);
+			}
+		}
 		return "redirect:/";
-		
 	}
 	
 	// 취미정보 가져오기

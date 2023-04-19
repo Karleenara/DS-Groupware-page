@@ -28,6 +28,16 @@ public class UserDaoImpl implements UserDao{
 		return sm.selectOne("getView", user_id);
 	}
 
+	@Override
+	public void updateUser(UserDto dto) {
+		sm.update("updateUser", dto);
+	}
+
+	@Override
+	public void deleteUser(UserDto dto) {
+		sm.delete("deleteUser", dto);
+	}
+
 
 	
 }

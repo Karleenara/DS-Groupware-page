@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
   <title>Bootstrap Example</title>
   <meta charset="utf-8">
@@ -20,15 +20,16 @@
 
  <div class="container" style="max-width: 1200px">
   <div class="d-flex mb-3">
-  	<div class="p-2 flex-fill">
-  	
-    <table style="width: 500px;" class="table">
+    <div class="p-2 flex-fill">
+    
+    	<table style="width: 500px;" class="table">
             <thead>
             <tr>
                 <th>ID</th>
                 <th>사원명</th>
                 <th>부서</th>
                 <th>상태</th>
+
                 
             </tr>
             </thead>
@@ -44,8 +45,8 @@
         </table>
     
     </div>
-    
     <div style="width: 500px;" class="p-2 flex-fill">
+    	<form name="myform" id="myform" method="post" th:object="${UserDto}" th:action="@{/admin/save/{user_id}(user_id=${userDto.user_id})}" >
           <table class ="table table-bordered">
           <tbody>
             <tr>
@@ -53,7 +54,7 @@
               <td>
                     <label style="float: left" for="user_id" class="col-sm-2 control-label"></label>
                         <div class="col-sm-10" style="margin-top: 10px;">
-                            <input type="id" class="form-control" id="user_id" name="user_id"  placeholder="ID"/>
+                            <input type="id" class="form-control" id="user_id" name="user_id"  th:value="${userDto.user_id}"/>
                     	</div>
              </td>
             </tr>
@@ -63,7 +64,7 @@
               <td>
                     <label style="float: left" for="user_nm" class="col-sm-2 control-label"></label>
                         <div class="col-sm-10" style="margin-top: 10px;">
-                            <input type="name" class="form-control" id="user_nm" name="user_nm" placeholder="Name"/>
+                            <input type="name" class="form-control" id="user_nm" name="user_nm" th:value="${userDto.user_nm}"/>
                 </div>
               </td>
             </tr>
@@ -72,15 +73,14 @@
               <td>
               <label style="float: left" for="user_eml_addr" class="col-sm-2 control-label"></label>
                         <div class="col-sm-10" style="margin-top: 10px;">
-                            <input type="email" class="form-control" id="user_eml_addr" name="user_eml_addr" placeholder="Email"/>
+                            <input type="email" class="form-control" id="user_eml_addr" name="user_eml_addr" th:value="${userDto.user_eml_addr}"/>
               </td>
             </tr>
             <tr>
               <th>부서</th>
               <td>
-              			<select class="form-select" name="user_dept_no">
-				<option value=""></option>
-				<option th:each="d:${deptlist}" th:value="${d.dept_no}" th:text="${d.dept_nm}"></option>
+              	<select class="form-select" name="dept_no">
+				<option th:each="d:${deptlist}" th:selected="${d.dept_no}==${userDto.user_dept_no}" th:text="${d.dept_nm}" th:value="${d.dept_no}"></option>
 		            </select> 
               </td>
             </tr>
@@ -89,7 +89,7 @@
               <td>
                             <label style="float: left" for="user_telno" class="col-sm-2 control-label"></label>
                         <div class="col-sm-10" style="margin-top: 10px;">
-                            <input type="telno" class="form-control" id="user_telno" name="user_telno" placeholder="PhoneNumber"/>
+                            <input type="telno" class="form-control" id="user_telno" name="user_telno" th:value="${userDto.user_telno}"/>
                     </div>
               </td>
             </tr>
@@ -98,30 +98,44 @@
               <td>
               		<label style="float: left" for="user_addr" class="col-sm-2 control-label"></label>
                         <div class="col-sm-10" style="margin-top: 10px;">
-                            <input type="addr" class="form-control" id="user_addr" name="user_addr" placeholder="Address"/>
+                            <input type="addr" class="form-control" id="user_addr" name="user_addr" th:value="${userDto.user_addr}"/>
                     </div>
               </td>
             </tr>
             <tr>
               <th>취미</th>
               <td>
-              	<label style="float: left" for="hobby" class="col-sm-2 control-label"></label></br>
-            	<input type="checkbox" th:each="h:${hobbylist}" th:value="${h.hobby_cd}" th:text="${h.hobby_nm}" />
+              <div th:each="h : ${hobbylist}" class="form-check">
+	      			<input type="checkbox" th:value="${h.hobby_cd}" class="form-check-input">
+	      			<label  th:text="${h.hobby_nm}" class="form-check-label"></label>
+	  			</div>
               </td>
             </tr>
             <tr>
               <th>상태</th>
-              <td>
-              	   <label style="float: left" for="aprv_yn" class="col-sm-2 control-label"></label>
-                        <div class="col-sm-10" style="margin-top: 10px;">
-                            <input type="aprv_yn" class="form-control" id="user_aprv_yn" name="aprv_yn" placeholder="Y/N"/>
-                    </div>
-              </td>
+              <td th:text="${userDto.user_aprv_yn}"></td>
             </tr>
           </tbody>
         </table>
+             
+        <div class="row">
+        <div class="col">
+            <button class="w-100 btn btn-primary btn-lg"
+                    type="submit" >저장
+            </button>
+	
+        </div>
+		</form>
+		
+        <div class="col">
 
-
+            <button class="w-100 btn btn-secondary btn-lg"
+            		th:onclick="|location.href='@{/admin/delete/{user_id}(user_id=${userDto.user_id})}'|"
+                    type="submit">삭제
+            </button>
+        	</div>
+		</div>
+    </div>
     </div>
   </div>
 
