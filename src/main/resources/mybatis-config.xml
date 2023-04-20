@@ -17,6 +17,7 @@
 		<!-- <mapper resource="/com/kosa/mycompany/mapper/Guestbook.xml" /> -->
 		<mapper resource="mapper/test.xml" />
 		<mapper resource="mapper/hobby.xml" />
+		<mapper resource="mapper/opperhobby.xml" />
 		<mapper resource="mapper/dept.xml" />
 	</mappers>
 

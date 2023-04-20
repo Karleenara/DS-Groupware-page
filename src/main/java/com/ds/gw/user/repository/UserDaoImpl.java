@@ -24,8 +24,8 @@ public class UserDaoImpl implements UserDao{
 	}
 
 	@Override
-	public UserDto getView(String user_id) {
-		return sm.selectOne("getView", user_id);
+	public UserDto getView(UserDto dto) {
+		return sm.selectOne("getView", dto);
 	}
 
 	@Override

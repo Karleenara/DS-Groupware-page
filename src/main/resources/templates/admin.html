@@ -18,6 +18,26 @@
   	</div>
   <hr class="my-4">
 
+  <!-- search form -->
+<form role="form" th:action="@{/admin}" method="get">
+<div class="container" style="max-width: 1200px">
+<div class="row">    
+    <div class="input-group">
+        <div class="input-group-btn">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                <span id="srch-category">Name</span> <span class="caret"></span>
+            </button>
+        </div>
+        <input type="hidden" id="txt-category">
+        <input type="text" name="searchKeyword" id="searchKeyword" th:value="${searchKeyword}" class="form-control" placeholder="Search for...">
+        <span class="input-group-btn">
+            <button type="submit" class="btn btn-dark">Search</button>
+        </span>
+    </div>
+</div>
+</div>
+</form>
+
  <div class="container" style="max-width: 1200px">
   <div class="d-flex mb-3">
   	<div class="p-2 flex-fill">
@@ -118,11 +138,14 @@
                     </div>
               </td>
             </tr>
+            
           </tbody>
+          
         </table>
-
+</div>
 
     </div>
+
   </div>
 
 </body>

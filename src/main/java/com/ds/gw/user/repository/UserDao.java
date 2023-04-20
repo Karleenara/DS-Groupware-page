@@ -7,7 +7,7 @@ import com.ds.gw.user.UserDto;
 public interface UserDao {
 	List<UserDto> getList(UserDto dto);
 	void insertUser(UserDto dto);
-	UserDto getView(String user_id);
+	UserDto getView(UserDto dto);
 	void updateUser(UserDto dto);
 	void deleteUser(UserDto dto);
 }

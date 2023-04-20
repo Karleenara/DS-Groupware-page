@@ -25,8 +25,8 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public UserDto getView(String user_id) {
-		return dao.getView(user_id);
+	public UserDto getView(UserDto dto) {
+		return dao.getView(dto);
 	}
 
 	@Override

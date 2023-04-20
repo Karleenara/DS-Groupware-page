@@ -15,4 +15,5 @@ public class UserDto extends DeptDto{
 	private int user_dept_no;
 	private String user_aprv_yn;
 	private String user_hobby;
+	String searchKeyword="";
 }
