@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import com.ds.gw.user.HUDto;
 import com.ds.gw.user.repository.OpperDao;
 
-import jakarta.annotation.Resource;
+import javax.annotation.Resource;
 
 @Service("opperService")
 public class OpperServiceImpl implements OpperService{

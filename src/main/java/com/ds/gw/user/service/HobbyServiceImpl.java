@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import com.ds.gw.user.HobbyDto;
 import com.ds.gw.user.repository.HobbyDao;
 
-import jakarta.annotation.Resource;
+import javax.annotation.Resource;
 
 @Service("hobbyService")
 public class HobbyServiceImpl implements HobbyService {

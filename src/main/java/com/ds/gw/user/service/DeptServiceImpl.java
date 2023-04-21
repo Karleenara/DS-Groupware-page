@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import com.ds.gw.user.DeptDto;
 import com.ds.gw.user.repository.DeptDao;
 
-import jakarta.annotation.Resource;
+import javax.annotation.Resource;
 
 @Service("deptService")
 public class DeptServiceImpl implements DeptService {

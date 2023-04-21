@@ -19,7 +19,7 @@ import com.ds.gw.user.service.HobbyService;
 import com.ds.gw.user.service.OpperService;
 import com.ds.gw.user.service.UserService;
 
-import jakarta.annotation.Resource;
+import javax.annotation.Resource;
 
 @Controller
 public class AdminController {
